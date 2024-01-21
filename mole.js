@@ -7,6 +7,7 @@ window.onload = function() {
     setGame();
 }
 
+
 function setGame() {
     for (i=0; i<9; i++) {
         let tile = document.createElement("div");
@@ -84,4 +85,21 @@ function selectTile() {
         document.getElementById("score").innerText = "GAME OVER: " + score.toString();
         gameOver = true;
     }
+}
+
+// Target the reset button
+const resetButton = document.getElementById("resetButton");
+console.log(resetButton);
+// Add event listener to the button
+resetButton.addEventListener("click", resetGame);
+
+function resetGame() {
+  // Reset variables
+  score = 0;
+  gameOver = false;
+
+  // Clear visual elements
+  document.getElementById("score").innerText = "Score: 0";
+  currMoleTile.innerHTML = "";
+  currPlantTile.innerHTML = "";
 }
